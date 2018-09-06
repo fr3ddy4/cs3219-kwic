@@ -3,10 +3,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ALFileInput implements Input {
+public class FileInput implements Input {
     private String filename;
 
-    ALFileInput(String filename) {
+    FileInput(String filename) {
         this.filename = filename;
     }
 
@@ -16,7 +16,7 @@ public class ALFileInput implements Input {
             return Files.readAllLines(Paths.get(filename));
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }
