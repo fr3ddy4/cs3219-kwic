@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CircularShifter implements Shifter {
@@ -9,14 +10,16 @@ public class CircularShifter implements Shifter {
     }
 
     @Override
-    public void shift(List<String> characters) {
+    public void shift() {
+        List<String> result = new LinkedList<>();
         for (String line : characters) {
             String words[] = line.split(" ");
             for (int i = 0; i < words.length; ++i) {
                 words = shiftWords(words);
-                this.characters.add(Arrays.toString(words));
+                result.add(Arrays.toString(words));
             }
         }
+        characters = result;
     }
 
     @Override
