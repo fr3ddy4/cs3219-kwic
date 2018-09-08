@@ -1,3 +1,9 @@
+/**
+ * @author A0193543B
+ * @author A0193208E
+ * @author A0193145E
+ * Main class with the entry point
+ */
 public class Main {
     public static void main(String[] args) {
         Input input = new FileInput("input.txt");

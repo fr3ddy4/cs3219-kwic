@@ -2,6 +2,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * Represents a file output
+ */
 public class FileOutput implements Output {
 
     private PrintWriter writer;

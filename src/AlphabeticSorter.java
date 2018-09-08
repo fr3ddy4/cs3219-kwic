@@ -1,12 +1,14 @@
-import java.util.Collections;
 import java.util.List;
 
+/**
+ * Represents the alphabetical sorter
+ */
 public class AlphabeticSorter implements Sorter {
     private List<String> lines;
 
     @Override
     public void sort(List<String> lines) {
-        Collections.sort(lines, String.CASE_INSENSITIVE_ORDER);
+        lines.sort(String.CASE_INSENSITIVE_ORDER);
         this.lines = lines;
     }
 

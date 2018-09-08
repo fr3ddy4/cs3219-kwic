@@ -2,6 +2,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Represents circular shifter
+ */
 public class CircularShifter implements Shifter {
     private List<String> characters;
 

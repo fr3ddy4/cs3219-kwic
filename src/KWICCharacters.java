@@ -1,5 +1,8 @@
 import java.util.List;
 
+/**
+ * Represents characters
+ */
 public class KWICCharacters implements Characters {
     private List<String> characters;
 
