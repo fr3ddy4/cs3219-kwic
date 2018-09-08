@@ -6,7 +6,7 @@ public class AlphabeticSorter implements Sorter {
 
     @Override
     public void sort(List<String> lines) {
-        Collections.sort(lines);
+        Collections.sort(lines, String.CASE_INSENSITIVE_ORDER);
         this.lines = lines;
     }
 
