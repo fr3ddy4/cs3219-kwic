@@ -6,10 +6,12 @@ import java.util.List;
  * Represents circular shifter
  */
 public class CircularShifter implements Shifter {
-    private List<String> characters;
+    private List<String> characters, ignore, required;
 
-    public CircularShifter(List<String> characters) {
-        this.characters = characters;
+    public CircularShifter(Characters characters) {
+        this.characters = characters.getCharacters();
+        this.ignore = characters.getIgnore();
+        this.required = characters.getRequired();
     }
 
     @Override
@@ -19,7 +21,16 @@ public class CircularShifter implements Shifter {
             String words[] = line.split(" ");
             for (int i = 0; i < words.length; ++i) {
                 words = shiftWords(words);
-                result.add(Arrays.toString(words));
+                if (!containsCaseInsensitive(ignore, words[0])) {
+                    // If required set is empty we only consider ignore words assuming all words are required
+                    if (required.size() > 0) {
+                        if (containsCaseInsensitive(required, words[0])) {
+                            result.add(Arrays.toString(words));
+                        }
+                    } else {
+                        result.add(Arrays.toString(words));
+                    }
+                }
             }
         }
         characters = result;
@@ -36,4 +47,14 @@ public class CircularShifter implements Shifter {
         System.arraycopy(words, 0, result, 1, words.length - 1);
         return result;
     }
+
+    private boolean containsCaseInsensitive(List<String> list, String word){
+        for (String string : list){
+            if (string.equalsIgnoreCase(word)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

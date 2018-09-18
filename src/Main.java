@@ -6,10 +6,12 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Input input = new FileInput("input.txt");
+        Input inputReader = new FileInput("input.txt");
+        Input ignoreReader = new FileInput("ignore.txt");
+        Input requiredReader = new FileInput("required.txt");
         Output output = new FileOutput("output.txt");
-        Characters characters = new KWICCharacters(input.read());
-        Shifter shifter = new CircularShifter(characters.getCharacters());
+        Characters characters = new KWICCharacters(inputReader.read(), ignoreReader.read(), requiredReader.read());
+        Shifter shifter = new CircularShifter(characters);
         shifter.shift();
         Sorter sorter = new AlphabeticSorter();
         sorter.sort(shifter.getLines());

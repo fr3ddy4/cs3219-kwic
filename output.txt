@@ -1,0 +1,7 @@
+[best, input, This, is, the]
+[dark, After]
+[input, This, is, a, test]
+[input, This, is, the, best]
+[test, input, This, is, a]
+[This, is, a, test, input]
+[This, is, the, best, input]

@@ -14,4 +14,8 @@ public interface Characters {
      * @return list of strings
      */
     List<String> getCharacters();
+
+    List<String> getIgnore();
+
+    List<String> getRequired();
 }
